@@ -21,12 +21,13 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import Resources.BaseTest;
+import Resources.Retry;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class SubmitOrder extends BaseTest {
 
 
-    @Test(dataProvider = "getData")
+    @Test(dataProvider = "getData",retryAnalyzer = Retry.class)
     public void submitOrder(String email, String pwd) throws InterruptedException {
         String productName = "ADIDAS ORIGINAL";
         String country = "ind";
