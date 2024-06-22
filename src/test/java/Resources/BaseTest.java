@@ -15,7 +15,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import rahulshettyacademy.LandingPage;
 
 public class BaseTest {
-    protected WebDriver driver;
+    public WebDriver driver;
 public LandingPage lp;
     public WebDriver initializeDriver() {
         WebDriverManager.chromedriver().setup();
@@ -42,7 +42,7 @@ public LandingPage lp;
         }
     }
     
-    public String getScreenshot(String testCaseName) throws IOException {	
+    public String getScreenshot(String testCaseName,WebDriver driver) throws IOException {	
     	TakesScreenshot ts = (TakesScreenshot)driver;
     	File src = ts.getScreenshotAs(OutputType.FILE);
     	File tgt = new File(System.getProperty("user.dir")+"//reports//"+testCaseName+".png");
